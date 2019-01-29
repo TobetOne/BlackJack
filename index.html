@@ -97,7 +97,7 @@
         }
 
         .address {
-            margin: 2% 34%;
+            margin: 2% 31%;
 
             color: #FFFFFF;
         }
@@ -131,7 +131,7 @@
             text-indent: 4em;
         }
         .firstTd {
-            width: 70%;
+            width: 60%;
         }
         .splitTd {
             width: 49%;
@@ -184,6 +184,7 @@
                 height: 35px;
                 margin: 8% auto 0;
                 font-size: 16px;
+                cursor: pointer;
             }
 
             .address {
@@ -389,12 +390,12 @@
         <form id="gameParam">
             <div class="inputDiv">
                 <p class="inputText">玩家种子（Player Seed）:</p>
-                <p class="textS">GameId+BetPlayersCount+BetAmount+LastBetTime</p>
+                <p class="textS">GameId+BetPlayersAccount+BetAmount+LastBetTime</p>
                 <input class="verInpt" id="playerSeed"/>
             </div>
             <div class="inputDiv">
                 <p class="inputText">玩家签名种子（Player Signature）:</p>
-                <p class="textS">Sign(GameId+BetPlayersCount+BetAmount+LastBetTime)</p>
+                <p class="textS">Sign(GameId+BetPlayersAccount+BetAmount+LastBetTime)</p>
                 <input class="verInpt" id="playerSignature"/>
             </div>
 
@@ -417,7 +418,7 @@
                 </div>
             </div>
             <div class="inputDiv">
-                <p class="formulaTitle">公式（formula）：</p>
+                <p class="formulaTitle">公式（Formula）：</p>
                 <p class="formulatext"> hash = SHA256(Player Signature);</p>
                 <p class="formulatext">for(var i=0;i<49;i++){</p>
                 <p class="p">//Each time take 6 digits and convert it to hexadecimal number, the rule is (1-6digits,2-7digits... 49-54digits)</p>
@@ -438,7 +439,7 @@
         </form>
         <button class="verifyBtn" onclick="getBpResult(gameId)">Verify</button>
         <div class="address">
-            <p>源码地址(Source Code)：<a style="color: #FFFFFF" href="https://github.com/TobetOne/BlackJack"
+            <p style='text-align: center'>Source Code：<a style="color: #FFFFFF" href="https://github.com/TobetOne/BlackJack"
                        target="_blank">https://github.com/TobetOne/BlackJack</a></p>
         </div>
     </div>

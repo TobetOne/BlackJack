@@ -5,13 +5,13 @@
 在使用此网页工具之前，请仔细阅读以下说明。你可以根据如下说明，自行开发程序验证。
 ## 开奖结果计算
   1. 根据游戏数据生成随机种子,并签名：<br>
-    seed = GameId+BetUserNum+BetPlayersACCount+BetAmount*10000+LastBetTime;<br>
+    seed = GameId+BetUserNum+BetPlayersAccount+BetAmount*10000+LastBetTime;<br>
     seed_sign = sign(seed)<br>
   2. 对随机种子hash（SH256）运算，结果转换为16进制<br>
-    hash_hex = hex(sha256(seed_sign))<br>
+    hash_hex = sha256(seed_sign)<br>
   3. 获取牌组下标后拿出牌<br>
     for(var i=0;i<49;i++){<br>
-    　　var signHash = parseInt(hash.substr(i,6),16);<br>
+    　　var signHash = parseInt(hash_hex.substr(i,6),16);<br>
     　　var index = Math.abs(signHash % (208-i));<br>
      　　if(i<14){<br>
         　　　ACards.push(poker[index]);<br>
@@ -20,16 +20,16 @@
      　　}else if(i >= 28 && i < 42){<br>
         　　　CCards.push(poker[index]);<br>
      　　}else {<br>
-         　　　SYSCards.push(poker[index]);<br>
+         　　　BankerCards.push(poker[index]);<br>
      　　}<br>
     }
 
 
 ## 随机因子说明
-   seed = GameId+BetUserNum+BetPlayersACCount+BetAmount*10000+LastBetTime;
+   seed = GameId+BetUserNum+BetPlayersAccount+BetAmount*10000+LastBetTime;
 *  GameId:游戏ID
 *  BetUserNum:下注总人数
-*  BetPlayersACCount:参与游戏玩家账号拼接
+*  BetPlayersAccount:参与游戏玩家账号拼接
 *  BetAmoun:本局游戏玩家总投注金额
 *  LastBetTime:玩家的投注时间
 ## 签名验证
