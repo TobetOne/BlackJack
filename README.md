@@ -13,6 +13,15 @@
     for(var i=0;i<49;i++){<br>
     　　var signHash = parseInt(hash.substr(i,6),16);<br>
     　　var index = Math.abs(signHash % (208-i));<br>
+     　　if(i<14){<br>
+        　　　ACards.push(poker[index]);<br>
+     　　}else if(i >= 14 && i < 28){<br>
+        　　　BCards.push(poker[index]);<br>
+     　　}else if(i >= 28 && i < 42){<br>
+        　　　CCards.push(poker[index]);<br>
+     　　}else {<br>
+         　　　SYSCards.push(poker[index]);<br>
+     　　}<br>
     }
 
 
