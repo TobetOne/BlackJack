@@ -238,8 +238,10 @@
                 RCards.push(cards[j])
             }
             finalUserData.rightResult = RCards;
-            for(var k=4+RNum;k< 2+RNum+LNum;k++){
+            for(var k=3+RNum;k< 1+RNum+LNum;k++){
                 LCards.push(cards[k]);
+                console.log(k)
+                console.log(cards[k])
             }
             finalUserData.leftResult = LCards;
         }else {
@@ -294,6 +296,7 @@
             }
             poker.splice(index,1);
         }
+        console.log(BCards)
 
         for(var j=0;j < playerData.length;j++){
             if(playerData[j].seatSort == 'SYS' ){
